@@ -138,7 +138,7 @@ export default function HeroSection({ onNavigate }: HeroProps) {
 
   return (
     <section className={`relative min-h-screen flex items-center justify-center overflow-hidden ${
-      theme === 'dark' ? 'bg-[#050714]' : 'bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30'
+      theme === 'dark' ? 'bg-[#050714]' : 'bg-linear-to-br from-slate-50 via-blue-50/30 to-purple-50/30'
     }`}>
       {/* Particle Canvas */}
       <canvas
@@ -157,109 +157,133 @@ export default function HeroSection({ onNavigate }: HeroProps) {
       <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 text-center">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border"
-          style={{
-            background: theme === 'dark' ? 'rgba(99,102,241,0.1)' : 'rgba(99,102,241,0.08)',
-            borderColor: theme === 'dark' ? 'rgba(99,102,241,0.3)' : 'rgba(99,102,241,0.2)',
-          }}
-        >
-          <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-          <span className={`text-xs font-medium ${theme === 'dark' ? 'text-indigo-300' : 'text-indigo-600'}`}>
-            پیشرفته‌ترین پلتفرم آموزش AI به فارسی
-          </span>
-          <span className="px-2 py-0.5 bg-indigo-500 text-white text-[10px] font-bold rounded-full">NEW</span>
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className={`text-4xl sm:text-5xl lg:text-7xl font-black leading-tight tracking-tight mb-6 ${
-            theme === 'dark' ? 'text-white' : 'text-slate-900'
-          }`}
-        >
-          مهارت‌های
-          <br />
-          <TypeWriter />
-          <br />
-          را از صفر بیاموز
-        </motion.h1>
-
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className={`text-lg sm:text-xl max-w-2xl mx-auto leading-8 mb-10 ${
-            theme === 'dark' ? 'text-slate-400' : 'text-slate-600'
-          }`}
-        >
-          با بهترین مدرسین ایران، دوره‌های جامع AI را به زبان فارسی بیاموزید. 
-          از مفاهیم پایه تا پروژه‌های حرفه‌ای و استخدام در صنعت.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-        >
-          <motion.button
-            onClick={() => onNavigate('courses')}
-            whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(99,102,241,0.4)' }}
-            whileTap={{ scale: 0.97 }}
-            className="flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-base rounded-2xl shadow-xl shadow-indigo-500/25 transition-all duration-300"
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div className="grid items-center gap-12 xl:grid-cols-[1.15fr_0.85fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center lg:text-left"
           >
-            شروع رایگان
-            <ArrowLeft className="w-5 h-5" />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className={`flex items-center gap-2.5 px-8 py-4 font-semibold text-base rounded-2xl border transition-all duration-300 ${
-              theme === 'dark'
-                ? 'border-white/10 text-white hover:bg-white/5'
-                : 'border-slate-200 text-slate-700 hover:bg-slate-50'
-            }`}
-          >
-            <div className="w-9 h-9 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md">
-              <Play className="w-4 h-4 text-white fill-white mr-0.5" />
+            <div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border"
+              style={{
+                background: theme === 'dark' ? 'rgba(99,102,241,0.1)' : 'rgba(99,102,241,0.08)',
+                borderColor: theme === 'dark' ? 'rgba(99,102,241,0.3)' : 'rgba(99,102,241,0.2)',
+              }}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+              <span className={`text-xs font-medium ${theme === 'dark' ? 'text-indigo-300' : 'text-indigo-600'}`}>
+                پیشرفته‌ترین پلتفرم آموزش AI به فارسی
+              </span>
+              <span className="px-2 py-0.5 bg-indigo-500 text-white text-[10px] font-bold rounded-full">NEW</span>
             </div>
-            مشاهده دمو
-          </motion.button>
-        </motion.div>
 
-        {/* Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-wrap items-center justify-center gap-8"
-        >
-          {[
-            { value: '+۵۰,۰۰۰', label: 'دانشجو فعال' },
-            { value: '+۱۰۰', label: 'دوره تخصصی' },
-            { value: '۴.۸/۵', label: 'میانگین امتیاز' },
-            { value: '+۹۵٪', label: 'رضایت دانشجویان' },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className={`text-2xl font-black mb-0.5 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
-                {stat.value}
-              </div>
-              <div className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-slate-500'}`}>
-                {stat.label}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className={`text-4xl text-right sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight tracking-tight mb-6 ${
+                theme === 'dark' ? 'text-white' : 'text-slate-900'
+              }`}
+            >
+              مهارت‌های
+              <br />
+              <TypeWriter />
+              <br />
+              را از صفر بیاموز
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className={`text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 leading-8 mb-10 ${
+                theme === 'dark' ? 'text-slate-400' : 'text-slate-600'
+              }`}
+            >
+              با بهترین مدرسین ایران، دوره‌های جامع AI را به زبان فارسی بیاموزید. 
+              از مفاهیم پایه تا پروژه‌های حرفه‌ای و استخدام در صنعت.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-16"
+            >
+              <motion.button
+                onClick={() => onNavigate('courses')}
+                whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(99,102,241,0.4)' }}
+                whileTap={{ scale: 0.97 }}
+                className="flex items-center cursor-pointer gap-2.5 px-8 py-4 bg-linear-to-r from-indigo-500 to-purple-600 text-white font-bold text-base rounded-2xl shadow-xl shadow-indigo-500/25 transition-all duration-300"
+              >
+                شروع رایگان
+                <ArrowLeft className="w-5 h-5" />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className={`flex  items-center gap-2.5 px-8 py-4 font-semibold text-base rounded-2xl border transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'border-white/10 text-white hover:bg-white/5'
+                    : 'border-slate-200 text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                <div className="w-9 cursor-pointer h-9 bg-linear-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md">
+                  <Play className="w-4 h-4 text-white fill-white mr-0.5" />
+                </div>
+                مشاهده دمو
+              </motion.button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-8"
+            >
+              {[
+                { value: '+۵۰,۰۰۰', label: 'دانشجو فعال' },
+                { value: '+۱۰۰', label: 'دوره تخصصی' },
+                { value: '۴.۸/۵', label: 'میانگین امتیاز' },
+                { value: '+۹۵٪', label: 'رضایت دانشجویان' },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center lg:text-left">
+                  <div className={`text-2xl font-black mb-0.5 ${theme === 'dark' ? 'text-white' : 'text-slate-900'}`}>
+                    {stat.value}
+                  </div>
+                  <div className={`text-xs ${theme === 'dark' ? 'text-slate-500' : 'text-slate-500'}`}>
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative overflow-hidden rounded-4xl border border-white/10 shadow-2xl shadow-slate-900/10 bg-white/10 backdrop-blur-xl"
+          >
+            <img
+              src="/images/hero-bg.jpg"
+              alt="AI learning illustration"
+              className="w-full h-[420px] object-cover sm:h-[520px] lg:h-[600px]"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-950/40 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <div className="max-w-sm rounded-3xl bg-slate-950/30 border border-white/10 p-5 shadow-xl backdrop-blur-xl">
+                <p className="text-sm uppercase tracking-[0.25em] text-indigo-200 mb-3">کورس‌های پروژه‌محور</p>
+                <h2 className="text-2xl font-black leading-tight">پروژه‌های عملی با تجربه واقعی</h2>
+                <p className="mt-3 text-sm text-slate-200 leading-6">
+                  تمرین‌های کاربردی، تمرکز روی ساخت مدل‌های AI و آماده‌سازی برای استخدام در صنعت.
+                </p>
               </div>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
